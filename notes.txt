@@ -1,0 +1,8 @@
+
+Git has a working directory, staging area, and the repository on the local system.
+
+Git add moves or marks what should be put in the staging area.
+
+Anything not in the staging area will not be committed to the repository.
+
+
