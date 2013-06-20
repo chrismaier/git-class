@@ -1,0 +1,24 @@
+git init
+git add
+git add .
+git status
+git commit
+git config
+git config --list
+git config --add email.address "chris.maier@rackspace.com"
+git config --add user.name "Chris Maier"
+git commit --amend --reset-author
+git config --global user.name "Chris Maier"
+git config --global email.address "chris.maier@rackspace.com"
+git commit --amend --reset-author
+git add
+git add .
+git status
+git add .
+git status
+git config --list
+git commit
+git status
+git status
+git add .
+git status
