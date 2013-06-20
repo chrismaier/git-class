@@ -5,4 +5,9 @@ Git add moves or marks what should be put in the staging area.
 
 Anything not in the staging area will not be committed to the repository.
 
+# Set up the user name - use --global or --add
+git config --global user.name "Your Name"
+
+# Set up the email address
+git config --global email.address "your.email@address.com"
 
