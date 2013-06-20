@@ -11,3 +11,12 @@ git config --global user.name "Your Name"
 # Set up the email address
 git config --global email.address "your.email@address.com"
 
+
+# The diff command by default compares whats in your working directory
+# with the bits in your staging area
+git diff
+
+# If you want to compare the delta between staging and the repository
+git diff HEAD
+
+

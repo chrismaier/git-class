@@ -1,6 +1,17 @@
 git init
+
+# Add new files to the staging area
+# If there are directories, all items in the directory are added recursively
+
+# Wont work:
 git add
+
+# Specify what to add:
 git add .
+
+git add *
+
+
 git status
 git commit
 git config
@@ -22,3 +33,9 @@ git status
 git status
 git add .
 git status
+
+# Run git interactively
+git add -i
+
+
+
