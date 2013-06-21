@@ -19,4 +19,25 @@ git diff
 # If you want to compare the delta between staging and the repository
 git diff HEAD
 
+# If you want to change the previous commit
+git commit --ammend
 
+# ** git commit --amend only changes the previous change
+# The ammend option can not go back past the last change
+# You would need to use the "rebase" command to go back more than 
+#  the last change
+
+
+# When you cloe a remote repository, git automatically links to the remote
+# repo called "origin"
+
+# git pull vs. git fetch
+
+# You must establish a tracking branch
+git checkout -b {branch-name} {remote-repo-name}/{branch-name}
+
+# Setting up a tracking branch allows a pull to automatically fetch and merge
+
+# How to remove a remote repository
+# - notice the colon : before the branch name
+git push {remote-repo} :{branch-name}
