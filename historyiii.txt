@@ -1,0 +1,262 @@
+    1  pwd
+    2  ls -al
+    3  cd ..
+    4  ls
+    5  mkdir notes
+    6  cd notes
+    7  git init
+    8  vim notes.txt
+    9  pwd
+   10  git add
+   11  git add .
+   12  git status
+   13  git commit
+   14  git config
+   15  git config --list
+   16  git config --add email.address "chris.maier@rackspace.com"
+   17  git config --add user.name "Chris Maier"
+   18  git commit --amend --reset-author
+   19  git config --global user.name "Chris Maier"
+   20  git config --global email.address "chris.maier@rackspace.com"
+   21  git commit --amend --reset-author
+   22  git add
+   23  git add .
+   24  git status
+   25  vim notes.txt 
+   26  git add .
+   27  git status
+   28  git config --list
+   29  git commit
+   30  cd ..
+   31  ls
+   32  ls -al
+   33  cd ..
+   34  ls -al
+   35  vim .gitconfig 
+   36  pwd
+   37  ls 
+   38  cd gitprojects/
+   39  ls
+   40  cd notes/
+   41  ls -al
+   42  touch git-commands.txt
+   43  git status
+   44  touch not-tracked.txt
+   45  pwd
+   46  ls -al
+   47  vim .gitignore
+   48  ls -al
+   49  vim .gitignore
+   50  git status
+   51  git add .
+   52  git status
+   53  history |grep git 
+   54  history |grep "git "
+   55  history |grep "git " |grep -v history >> git-commands.txt 
+   56  vim git-commands.txt 
+   57  history |grep "git " | awk '{print $2}'
+   58  ls -al
+   59  vim git-commands.txt 
+   60  git add .
+   61  git commit
+   62  git help commit
+   63  git
+   64  tree -a
+   65  git tree
+   66  tree
+   67  tree -a
+   68  ls -al 
+   69  vim git-commands.txt 
+   70  mkdir foo
+   71  touch ./foo/sample.txt
+   72  git add *
+   73  git status
+   74  git add .
+   75  git status
+   76  git diff
+   77  pwd
+   78  vim notes.txt 
+   79  git diff
+   80  git diff HEAD
+   81  git commit -a -v -m "Adding some modified files"
+   82  vim notes.txt 
+   83  git log
+   84  git log 2
+   85  git sho
+   86  git show
+   87  git log --help
+   88  git log -2
+   89  git log -2 -p
+   90  git show -2
+   91  git log --pretty=oneline
+   92  pwd
+   93  cd ..
+   94  ls -al
+   95  mkdir lab1
+   96  cd lab1/
+   97  ls -al
+   98  cd ..
+   99  ls -al
+  100  pwd
+  101  cd ..
+  102  ls
+  103  ls -al
+  104  source .gitconfig 
+  105  pwd
+  106  ls
+  107  cd gitprojects/
+  108  ls
+  109  cd lab1/
+  110  ls
+  111  ls -al
+  112  git status
+  113  git init
+  114  git status
+  115  git status --help
+  116  git 
+  117  git show
+  118  git show --list
+  119  git show --help
+  120  git show full
+  121  git show --full
+  122  git show
+  123  git show --help
+  124  pwd
+  125  cd ..
+  126  ls
+  127  cd git/
+  128  ls
+  129  ls -al
+  130  vim test-sha1.sh
+  131  ls -al
+  132  ls
+  133  vim commit.h 
+  134  ls -al
+  135  vim commit.c 
+  136  cd ..
+  137  ls
+  138  cd lab1/
+  139  ls
+  140  ls -al
+  141  touch foo.txt
+  142  echo "Hi, this is an advanced hello world text file" >> foo.txt 
+  143  git commit
+  144  git config --list
+  145  pwd
+  146  git config --global user.email "chris.maier@rackspace.com"
+  147  pwd
+  148  ls -al
+  149  touch file-a.txt file-b.txt
+  150  git add file-a.txt 
+  151  git status
+  152  git commit -m "First commit.  Adding file-a.txt"
+  153  git status
+  154  vim file-a.txt 
+  155  ls -al
+  156  git status
+  157  git commit -m "Changes to file-a"
+  158  git add file-a.txt 
+  159  git commit -m "Changes to file-a"
+  160  git log
+  161  vim file-a.txt 
+  162  git add file-a.txt 
+  163  git status
+  164  git log
+  165  git commit -m "Changed file-a adding new stuff"
+  166  git log
+  167  git log -p
+  168  vim file-a.txt 
+  169  git add file-a.txt 
+  170  git commit -m "Completely re-worked file-a"
+  171  git log -p
+  172  git log --grapy
+  173  git log --graphy
+  174  git log --graph
+  175  git log --stat
+  176  git log -2
+  177  git log -2 -p
+  178  ls -al
+  179  vim file-b.txt 
+  180  git add file-b.txt 
+  181  git status
+  182  git reset HEAD
+  183  git status
+  184  vim file-b.txt 
+  185  git status
+  186  git commit -a -m "Commiting unstaged files"
+  187  ls -al
+  188  vim .gitignore
+  189  git status
+  190  git add .
+  191  git status
+  192  git commit -m "Adding more files"
+  193  vim file-b.txt 
+  194  history
+  195  git commit -a -m "Commiting unstaged files"
+  196  git log -2
+  197  git log -2 -p
+  198  git stash --help
+  199  tree
+  200  tree -a
+  201  git show
+  202  git status
+  203  git add .
+  204  git status
+  205  ls -al
+  206  git show
+  207  git tag
+  208  git tag --list
+  209  git tag -a "v.0.1" -m "First tag"
+  210  git tag
+  211  git show v.0.1
+  212  pwd
+  213  cd ..
+  214  ls
+  215  mkdir lab2
+  216  cd lab2/
+  217  git init
+  218  ls -la
+  219  touch a-file.txt b-file.txt c-file.txt .gitignore ignore.log
+  220  ls -al
+  221  git add .
+  222  git status
+  223  git commit -m 
+  224  git commit -m "Initialzing the lab 2 files"
+  225  vim .gitignore 
+  226  git add .
+  227  git commt -m "Updated ignores"
+  228  git commit -m "Updated ignores"
+  229  ls
+  230  ps -aef > ignore.log 
+  231  ls -al
+  232  echo "Hello world one" > a-file.txt 
+  233  echo "Another file for lab 2" > b-file.txt 
+  234  git add .
+  235  git commit -m "More data for lab 2"
+  236  git stash --list
+  237  git stash list
+  238  git stash show
+  239  ~~ ================================================================================= =
+  240  exit
+  241  pwd
+  242  cd
+  243  ls
+  244  ls -al
+  245  touch temp.txt
+  246  vim temp.txt 
+  247  pwd
+  248  ls 
+  249  cd gitprojects/
+  250  ls
+  251  mkdir delete
+  252  cd delete/
+  253  git clone git@github.com:chrismaier/github-lab.git
+  254  pwd
+  255  cat ~/temp.txt 
+  256  cat ~/.ssh/id_rsa.pub 
+  257  git clone git@github.com:chrismaier/github-lab.git
+  258  hisotyr
+  259  history
+  260  cd ..
+  261  cd notes/
+  262  history > historyiii.txt
