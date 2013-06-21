@@ -22,8 +22,8 @@ git diff HEAD
 # If you want to change the previous commit
 git commit --ammend
 
-# ** git commit --amend only changes the previous change
-# The ammend option can not go back past the last change
+# ** git commit --amend only changes the previous commit / change
+# The ammend option can not go back past the last change - one level of undo
 # You would need to use the "rebase" command to go back more than 
 #  the last change
 
@@ -33,7 +33,7 @@ git commit --ammend
 
 # git pull vs. git fetch
 
-# You must establish a tracking branch
+# You must establish a tracking branch first
 git checkout -b {branch-name} {remote-repo-name}/{branch-name}
 
 # Setting up a tracking branch allows a pull to automatically fetch and merge
@@ -41,3 +41,13 @@ git checkout -b {branch-name} {remote-repo-name}/{branch-name}
 # How to remove a remote repository
 # - notice the colon : before the branch name
 git push {remote-repo} :{branch-name}
+
+
+# fetch vs. pull
+# git fetch pulls all tracked items from a remote in to your repository so you
+# can then do a merge - but no files are changed, and no merge operations are
+# attempted.
+# pull will actually bring down the changes AND try and merge with the current
+# files - you will see merge confilcts immediately if they exist
+
+
