@@ -14,6 +14,14 @@
 # ***  access to a system with git already installed ***
 
 
+# Topics NOT covered (or not covered in depth)
+# Merging / resolving merge conflicts
+# Managing branches and branching strategy
+# Rebasing
+# Squashing
+# And a slew of oters...
+
+
 # Basic layout of git directories and projects:
 #
 # Best thing to do is select a "master git directory"
@@ -191,6 +199,82 @@ git commit -m "Some meaningful comments here"
 # 4. Get interrupted while working on a shared repo and have to switch branches
 
 
+
+
+# Ok, remember when I said there were like three buckets - I lied
+# In order to accomplish item 1. from the list above, we have to add a new
+#  bucket - a remote bucket.
+# Remote buckets are your friend because they prevent hard drive crashes 
+#  from wiping out your beautiful local git repo.
+# Everything we have done so far has been on our local box. 
+# It may be obvious, but is dangerous enough to repeat: 
+# Your version control efforts thus far are still a single point of failure.
+# While it is very convienent to develop on your system and without internet
+#  connectivity, your data is only as durable as your hard drive or storage 
+#  media where you put the files.
+# To ensure our data is really robust, we need to put a copy on a remote server
+# And we probably want to collaborate as well...
+
+# So, how do we see what remote buckets we have ?
+git remote -v
+
+# The -v is important because without it you get a very abstract list
+# (well, abstract IMO since the list is made up of alias')
+# Right now, there isn't anything dispalyed - because we have not connected
+#  to a remote repository yet
+# This is where we need our github account
+# Log in to github
+# Create a new repo named mytestproject
+# (the name doesn't have to match but makes it SOOO much easier to manage)
+# example error:
+# "error: src refspec master does not match any."
+#
+# *** IMPORTANT ***
+# DO NOT initialized the repo or it will be a PITA to sync local w/ remote
+# Have a close look at the next page on github - second option
+# "Push an existing repository from the command line"
+# Let's try it:
+
+# Using the SSH version
+# ** (you must have your SSH key configured) **
+git remote add origin git@github.com:chrismaier/mytestrepo.git
+
+# Using the HTTPS version (probably going to prompt for user/pass)
+git remote add origin https://github.com/chrismaier/mytestrepo.git
+
+# Once you have ONE of the above configured we can have another look
+#  at the git remote command
+git remote -v
+
+# So, what if you want to be able to use BOTH SSH and HTTPS ?
+# The "origin" is simply an alias
+git remote add origin-https https://github.com/chrismaier/mytestrepo.git
+git remote -v
+
+# Add a "foo" alias:
+git remote add foo https://github.com/chrismaier/mytestrepo.git
+git remote -v
+
+# You can add as many alias' as you want, but I don't recommend it
+
+
+# Now we have an alias, but the data still was not sent to the remote location
+git push -u origin master
+
+# What we just did:
+# We pushed the commited data from our local repo
+# The data was pushed to the alias "origin"
+# The alias origin is a pointer to our remote repo on github
+# The data was pushed for code branch "master"
+
+# Just to re-iterate, the alias "origin" while used often as a standard
+#  is simply an arbitrary alias to the remote repository.
+# We now have to deal with the concept of a branch 
+# A branch is another arbitrary alias assigned to a code progress path
+# The branch "master" is another convention, but you could just as easily
+#  be working on branch "staging", "qe", "dev", "patch", "hotfix" etc.
+# Eventually, all the individual code progress branches need to be consolidated
+#  or merged - typically back in to branch master.
 
 
 
