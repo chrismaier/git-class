@@ -1,0 +1,196 @@
+# Git - an introductory how to
+# (for those of us that don't get git)
+
+# Topics covered:
+# Basic layout of git directories and projects
+# Fundamentals of how git operates
+# Real-world scenarios when using git to interact with things like puppet 
+#  and software projects
+# Connecting to public github (or using Rackspace internal github)
+
+# *** This period of instruction assumes you have the following: ***
+# ***  a public github account (free) ***
+# ***  basic *nix shell familiarity ***
+# ***  access to a system with git already installed ***
+
+
+# Basic layout of git directories and projects:
+#
+# Best thing to do is select a "master git directory"
+# Something like "~/gitrepositories/" or "~/gitrepos/"
+# So, from your home directory:
+cd 
+mkdir gitrepos
+cd gitrepos
+
+# Now, from this directory we will hang all of our projetcs 
+# We create one directory for each project we want to work on
+cd ~/gitrepos/
+mkdir mytestproject
+cd mytestproject
+
+# At this point, we still dont have any git repos configured, lets configure one:
+git init
+
+# We now have a single git repo in our tree, but it may not be configured 
+#  properly.  Lets backup a bit, and create another
+cd ~/gitrepos/
+mkdir newtestproject
+cd newtestproject
+
+# This is an un-initialized git project HOWEVER - lets check a few things:
+# What do we currently have configured for our settings?
+git config --list
+
+# We must understand that git has three levels of configuration 
+# In order of precedence:
+# local repo config - current repo only (over-rides all other levels)
+# example:
+git config --local --list
+
+# global config - "global" for the currently logged in user
+#  - can be over-ridden by a local repo config
+# example:
+git config --global --list 
+
+
+# system config - stored in /etc/gitconfig : probably requires root to modify
+#  - can be over-ridden by either the user global settins or local repo
+# example:
+git config --system --list
+
+# Configuration settings are name value pairs
+# The attribute names are often represented with dots "." between words
+# spaces are used as the assignment operator
+# example:
+user.name myuser
+ 
+# We should set our username and email address or we will have problems 
+#  with our remote repos - ssh authentication is uesd frequently, but
+#  https auth can be used as well
+
+
+git config --global user.name chrismaier
+git config --global user.email chris.maier@rackspace.com
+git config --global --list
+
+# Now lets initialze the "newtestproject" with our updated values
+# (you are still in the ~/gitrepos/newtestproject/ directory right?)
+git init
+
+
+
+# Basic git interworkings - local repos
+#
+# Essentially the way I personally make sense of git I imagine three buckets
+# Bucket one: the repo directory
+# Bucket two: the staging area
+# Bucket three: the repo (or repo-db)
+
+# Understading how your data / changes move through the system is important
+# Once you understand these concepts, git will get easy ;)
+
+# While the directory and files in it are straight forward, you must accept
+#  the fact that git will sometimes change the files.
+# Generally, the changes are intended, but depending on the command you run
+#  you may actually modify or delete data that you did not intend.
+# Git is fairly friendly about warning you in some cases before it modifies
+#  data, not so much in others
+# Git has some commands that will help you save your work like:
+git stash 
+
+# However, git stash can also befuddle and confound you, so use it with 
+#  caution
+
+# So, the buckets - what are they and how do they work?
+# The file directories should be pretty straight forward
+# These are files you are editing - your source code, config files etc.
+# Git will do NOTHING with these files if you don't tell it to
+# (you are still in the ~/gitrepos/newtestproject/ directory right?)
+echo "Test data" >> test-file.txt
+
+# Let's see what git thinks we have done:
+git status
+
+# Yeah, nothing - there are no files "staged" / no checksums to compare to
+#  the data in the repo
+# ** Notice git was nice enough to remind us what to do next
+# So, how do we tell git we want it to pay attention to our file?
+git add test-file.txt
+git status
+
+# So, we just told git to pay attention to "test-file.txt" and to perform
+#  the initial checksum and store all that in the staging bucket
+# There are lots of ways to add files to the tracking bucket
+# The three I am most familiar with:
+git add {file-name} # adds one file
+git add *           # adds all files in the current directory
+git add .           # adds all files AND directories
+
+# The important thing to note is the difference between:
+# git add * 
+# and
+# git add .
+# The first one generally wont track any files in any sub-directories
+# The second one will add everything from all directories recursively always
+
+# So, if we think we "oops'd" and we want to remove that password file
+#  that is staged and ready to be commited, we can un-stage /remove it
+# Use git rm --cached {file-to-un-stage}
+
+mkdir stuff
+echo "More file data" >> ./stuff/another-file.txt
+echo "password=secrete" >> password.txt
+
+git add *
+git status
+
+# OOPS - added the password file, lets remove it
+git rm --cached password.txt
+
+mkdir morestuff
+echo "Lots of bogus data here" >> ./morestuff/data.txt
+
+git add .
+git status 
+
+# Damn, that password file is a PITA - lets remove it again and fix this
+git rm --cached password.txt
+echo "password.txt" >> .gitignore
+git add .
+git status 
+
+# And, if you dont want to track the .gitignore file... ???
+# You can have multiple .gitignore files some global and system wide
+# To learn more about gitignore files:
+#  https://help.github.com/articles/ignoring-files
+
+
+# Ok, so we are finally happy with the files in our second bucket
+# Time to actually commit the files to the version contronl system
+# The quick way will be covered so we dont have to deal with editors
+git commit -m "Some meaningful comments here"
+
+# So, here is what we did:
+# We created files in bucket one (the file system / directories)
+# We calculated checksums and staged our files in bucket two
+# We decided not to put the passwords in to the repo so we un-staged them
+# We committed our files to the repo - aka bucket three
+
+
+
+# So, we have essentially covered one of the practical git use cases
+# We created a new project and put stuff in to version control.
+#
+# 0. Create a new repo on my system
+#
+# Other common use cases I have run across:
+# 1. Take my new shiny repo and put it on github
+# 2. Copy a repo from github to my machine to work on it (commit access)
+# 3. Copy a repo from github to my machine to work on it (NO commit access)
+# 4. Get interrupted while working on a shared repo and have to switch branches
+
+
+
+
+

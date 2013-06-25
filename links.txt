@@ -1,2 +1,7 @@
+# Useful links to other peoples git stuff
+
+http://git-scm.com/book/ch1-5.html
+https://help.github.com/articles/ignoring-files
+
 http://www.postgresql.org/docs/devel/static/git.html
 
