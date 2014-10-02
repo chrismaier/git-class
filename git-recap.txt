@@ -37,7 +37,9 @@ cd ~/gitrepos/
 mkdir mytestproject
 cd mytestproject
 
-# At this point, we still dont have any git repos configured, lets configure one:
+# At this point, we still dont have any git repos configured, lets configure one for "mytestproject":
+# Ensure you are in the "mytestproject" directory
+pwd
 git init
 
 # We now have a single git repo in our tree, but it may not be configured 
@@ -63,7 +65,8 @@ git config --global --list
 
 
 # system config - stored in /etc/gitconfig : probably requires root to modify
-#  - can be over-ridden by either the user global settins or local repo
+#  - can be over-ridden by either the user global settings or local repo
+# May not exist at all (see error message)
 # example:
 git config --system --list
 
@@ -73,6 +76,8 @@ git config --system --list
 # example:
 user.name myuser
  
+
+
 # We should set our username and email address or we will have problems 
 #  with our remote repos - ssh authentication is uesd frequently, but
 #  https auth can be used as well
@@ -82,20 +87,20 @@ git config --global user.name chrismaier
 git config --global user.email chris.maier@rackspace.com
 git config --global --list
 
-# Now lets initialze the "newtestproject" with our updated values
+# Now lets initialize the "newtestproject" with our updated values
 # (you are still in the ~/gitrepos/newtestproject/ directory right?)
 git init
 
 
 
-# Basic git interworkings - local repos
+# Basic git inter-workings - local repos
 #
 # Essentially the way I personally make sense of git I imagine three buckets
 # Bucket one: the repo directory
 # Bucket two: the staging area
 # Bucket three: the repo (or repo-db)
 
-# Understading how your data / changes move through the system is important
+# Understanding how your data / changes move through the system is important
 # Once you understand these concepts, git will get easy ;)
 
 # While the directory and files in it are straight forward, you must accept
@@ -172,6 +177,9 @@ git status
 # You can have multiple .gitignore files some global and system wide
 # To learn more about gitignore files:
 #  https://help.github.com/articles/ignoring-files
+# Create a .gitignore file in the root of your repository
+touch .gitignore
+
 
 
 # Ok, so we are finally happy with the files in our second bucket
