@@ -5,3 +5,5 @@ https://help.github.com/articles/ignoring-files
 
 http://www.postgresql.org/docs/devel/static/git.html
 
+http://stackoverflow.com/questions/348170/undo-git-add-before-commit
+
