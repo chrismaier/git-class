@@ -51,3 +51,12 @@ git push {remote-repo} :{branch-name}
 # files - you will see merge confilcts immediately if they exist
 
 
+# When you "oops" with git add .
+# Sometimes you add a bunch of stuff that you didn't intend
+# Maybe it was image files, compiled code, or whatever
+# And you added a LOT of it....
+# As long as you haven't committed, do the following:
+# Update your .gitignore so it doesn't happen again ;)
+# and run:
+git reset
+
